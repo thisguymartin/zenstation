@@ -1,0 +1,21 @@
+{
+  "name": "@zenstation/www",
+  "main": "index.html",
+  "version": "0.0.0",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "sst dev",
+    "typecheck": "pnpm --filter=* typecheck"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "patch-package": "^8.0.0",
+    "sst": "3.1.16"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20240909.0",
+    "typescript": "5.5.4"
+  }
+}
