@@ -1,11 +1,11 @@
 export const domain =
   {
-    production: "zenstation.me",
-    dev: "dev.zenstation.me",
-  }[$app.stage] || $app.stage + ".dev.zenstation.me";
+    production: "codecoffeebreak.com",
+    dev: "dev.codecoffeebreak.com",
+  }[$app.stage] || $app.stage + ".codecoffeebreak.com";
 
 
 export const zone = cloudflare.getZoneOutput({
-  name: "zenstation.me",
+  name: "codecoffeebreak.com",
 });
 

@@ -6,9 +6,5 @@ export {}
 import "sst"
 declare module "sst" {
   export interface Resource {
-    "Site": {
-      "type": "sst.aws.Nuxt"
-      "url": string
-    }
   }
 }

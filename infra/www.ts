@@ -3,7 +3,7 @@ import { domain } from "./dns";
 export const www = new sst.aws.Nuxt("Site", {
     domain: {
       name: "www." + domain,
-      dns: sst.cloudflare.dns(),
+      dns: aws.route53domains.RegisteredDomain
     },
     path: "./packages/www",
     link: [],

@@ -5,11 +5,13 @@ import { readdirSync } from "fs";
 export default $config({
   app(input) {
     return {
-      name: "zenstation",
+      name: "codecoffeebreak",
       removal: input?.stage === "production" ? "retain" : "remove",
-      home: "cloudflare",
+      home: "aws",
       providers: {
-          aws: true,
+          aws: {
+            region: "us-east-1",
+          },
           cloudflare: true,
           random: true,
           tls: true,
@@ -25,6 +27,15 @@ export default $config({
         properties: {
           url: $interpolate`https://${record.name}`,
         },
+      };
+    });
+
+
+    sst.Linkable.wrap(aws.cloudwatch.LogGroup, function (record) {
+      return {
+          properties: {
+            retentionInDays: $app.stage === "production" ? 30 : 1, // 30 days in production, 1 day in dev
+          }
       };
     });
 
